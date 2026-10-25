@@ -1,0 +1,21 @@
+# Inference only. Versions are lower bounds, not a frozen environment.
+#
+# CPU-only install (avoids the large default CUDA wheel). Install these two
+# first, then the rest of this file:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+#
+# GPU: install the torch/torchvision build that matches your CUDA from
+# https://pytorch.org, then: pip install -r requirements.txt
+#
+# onnx / onnxruntime are for weights/rock_yolov8s_seg_boulder_ft3.onnx.
+# The default .pt checkpoint runs through ultralytics without them.
+
+torch>=2.2
+torchvision>=0.17
+ultralytics>=8.2
+pyyaml>=6.0
+pillow>=10.0
+numpy>=1.24
+onnx>=1.16
+onnxruntime>=1.18

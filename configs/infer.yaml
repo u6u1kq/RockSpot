@@ -1,0 +1,24 @@
+# RockSpot inference. Paths are relative to the repo root (parent of configs/).
+# Empty / null classifier settings keep the public ImageNet demo.
+
+device: auto
+
+# YOLOv8s-seg, one class (rock). Training images are not in this repo.
+segment_weights: weights/rock_yolov8s_seg_boulder_ft3.pt
+conf: 0.4
+iou: 0.45
+imgsz: 640
+max_det: 50
+
+# null = torchvision MobileNetV3-Small ImageNet weights.
+# Later: weights/rock_mbv3s.pt (state_dict). A missing file falls back to ImageNet.
+classifier_weights: null
+# null = ImageNet labels. Later: a text file, one class name per line.
+class_names: null
+classify_imgsz: 224
+
+# MobileNetV3-Small pooled vector, taken before the classifier head. The code
+# writes the actual length to results.json (576 for this architecture).
+feature_dim: 576
+
+output_dir: outputs
